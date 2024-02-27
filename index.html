@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galería de Arte</title>
-<!-- Agrega enlaces a FontAwesome -->
+<!-- Agregar enlaces a FontAwesome y jQuery -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
   * {
     margin: 0;
@@ -15,7 +16,7 @@
 
   body {
     font-family: Arial, sans-serif;
-    background-color: #f2f2f2; /* Color de fondo */
+    background-color: #f5f5f5; /* Color de fondo */
   }
 
   nav {
@@ -41,6 +42,7 @@
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
+    position: relative;
   }
 
   .carousel {
@@ -54,23 +56,21 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    transition: opacity 1s ease-in-out; /* Transición de opacidad */
   }
 
   .btn-whatsapp {
-    position: fixed;
+    position: absolute;
     bottom: 20px;
-    left: 20px; /* Ubicación en la esquina inferior izquierda */
+    right: 20px; /* A la derecha */
     background-color: #25d366; /* Verde de WhatsApp */
     color: white;
-    padding: 15px; /* Tamaño aumentado */
+    padding: 15px;
     border: none;
     border-radius: 50%; /* Forma circular */
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  }
-
-  .btn-whatsapp i {
-    font-size: 24px; /* Tamaño del ícono */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
   }
 
 </style>
@@ -87,6 +87,7 @@
     <div class="carousel">
       <img src="cuadro_1.jpg" alt="Imagen 1">
       <img src="cuadro_2.jpg" alt="Imagen 2">
+      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre Oceano inconciente')"><i class="fab fa-whatsapp"></i></button>
     </div>
   </section>
   
@@ -94,26 +95,28 @@
     <div class="carousel">
       <img src="taller_1.jpg" alt="Imagen 1">
       <img src="taller_2.jpg" alt="Imagen 2">
+      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre los talleres de arte abstracto')"><i class="fab fa-whatsapp"></i></button>
     </div>
   </section>
 </main>
-
-<button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información')"> <i class="fab fa-whatsapp"></i> </button>
 
 <script>
   function sendWhatsappMessage(number, message) {
     window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(message));
   }
 
-  // Automatización del cambio de imágenes en los carruseles
-  document.querySelectorAll('.carousel').forEach(carousel => {
-    let index = 0;
-    const images = carousel.querySelectorAll('img');
-    setInterval(() => {
-      images[index].style.display = 'none';
-      index = (index + 1) % images.length;
-      images[index].style.display = 'block';
-    }, 5000); // Cambiar cada 5 segundos
+  // Función para cambiar las imágenes automáticamente cada 5 segundos
+  $(document).ready(function(){
+    $('.carousel').each(function() {
+      var $imgs = $(this).find('img');
+      $imgs.eq(0).show();
+      var index = 0;
+      setInterval(function() {
+        $imgs.eq(index).fadeOut(1000);
+        index = (index + 1) % $imgs.length;
+        $imgs.eq(index).fadeIn(1000);
+      }, 5000);
+    });
   });
 </script>
 
