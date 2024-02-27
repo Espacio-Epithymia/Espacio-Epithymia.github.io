@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galería de Arte</title>
+<!-- Agrega enlaces a FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <style>
   * {
     margin: 0;
@@ -56,13 +58,19 @@
   .btn-whatsapp {
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    left: 20px; /* Modificado para estar a la izquierda */
     background-color: #25d366; /* Verde de WhatsApp */
     color: white;
-    padding: 10px 20px;
+    padding: 10px 40px 10px 20px; /* Aumentado el padding para el ícono */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: flex; /* Para alinear el ícono y el texto */
+    align-items: center; /* Para alinear el ícono y el texto */
+  }
+
+  .btn-whatsapp i {
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
   }
 
 </style>
@@ -78,23 +86,16 @@
   <section id="seccion1">
     <div class="carousel">
       <img src="cuadro_1.jpg" alt="Imagen 1">
-      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre Oceano inconciente')">Contactar</button>
+      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre Oceano inconciente')"><i class="fab fa-whatsapp"></i>Contactar</button>
     </div>
   </section>
   
   <section id="seccion2">
     <div class="carousel">
       <img src="taller_1.jpg" alt="Imagen 2">
-      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre los talleres de arte abstracto')">Contactar</button>
+      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre los talleres de arte abstracto')"><i class="fab fa-whatsapp"></i>Contactar</button>
     </div>
   </section>
 </main>
 
 <script>
-  function sendWhatsappMessage(number, message) {
-    window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(message));
-  }
-</script>
-
-</body>
-</html>
