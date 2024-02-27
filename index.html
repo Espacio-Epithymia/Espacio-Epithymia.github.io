@@ -59,7 +59,12 @@
     height: 100%;
     object-fit: cover;
     position: absolute;
+    opacity: 0; /* Inicialmente ocultar las imágenes */
     transition: opacity 1s ease-in-out; /* Transición de opacidad */
+  }
+
+  .carousel img.active {
+    opacity: 1; /* Mostrar la imagen activa */
   }
 
   .btn-whatsapp {
@@ -76,6 +81,18 @@
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Sombra */
   }
 
+  .gallery-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
 </style>
 </head>
 <body>
@@ -88,14 +105,18 @@
 <main>
   <section id="seccion1">
     <div class="carousel">
-      <img src="cuadro_1.jpg" alt="Imagen 1">
+      <img src="cuadro_1.jpg" alt="Imagen 1" class="active">
       <img src="cuadro_2.jpg" alt="Imagen 2">
+      <div class="gallery-info">
+        AG Gallery<br>
+        Laboratorio de experiencias
+      </div>
     </div>
   </section>
   
   <section id="seccion2">
     <div class="carousel">
-      <img src="taller_1.jpg" alt="Imagen 1">
+      <img src="taller_1.jpg" alt="Imagen 1" class="active">
       <img src="taller_2.jpg" alt="Imagen 2">
     </div>
   </section>
@@ -112,12 +133,12 @@
   $(document).ready(function(){
     $('.carousel').each(function() {
       var $imgs = $(this).find('img');
-      $imgs.eq(0).show();
+      $imgs.eq(0).addClass('active'); // Añadir clase 'active' a la primera imagen
       var index = 0;
       setInterval(function() {
-        $imgs.eq(index).fadeOut(1000);
+        $imgs.eq(index).removeClass('active').fadeOut(1000); // Ocultar imagen actual
         index = (index + 1) % $imgs.length;
-        $imgs.eq(index).fadeIn(1000);
+        $imgs.eq(index).addClass('active').fadeIn(1000); // Mostrar siguiente imagen
       }, 5000);
     });
   });
