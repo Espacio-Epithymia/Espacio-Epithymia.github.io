@@ -15,6 +15,7 @@
 
   body {
     font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Color de fondo */
   }
 
   nav {
@@ -56,21 +57,20 @@
   }
 
   .btn-whatsapp {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
-    left: 20px; /* Modificado para estar a la izquierda */
+    left: 20px; /* Ubicación en la esquina inferior izquierda */
     background-color: #25d366; /* Verde de WhatsApp */
     color: white;
-    padding: 10px 40px 10px 20px; /* Aumentado el padding para el ícono */
+    padding: 15px; /* Tamaño aumentado */
     border: none;
-    border-radius: 5px;
+    border-radius: 50%; /* Forma circular */
     cursor: pointer;
-    display: flex; /* Para alinear el ícono y el texto */
-    align-items: center; /* Para alinear el ícono y el texto */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
   }
 
   .btn-whatsapp i {
-    margin-right: 10px; /* Espacio entre el ícono y el texto */
+    font-size: 24px; /* Tamaño del ícono */
   }
 
 </style>
@@ -86,22 +86,35 @@
   <section id="seccion1">
     <div class="carousel">
       <img src="cuadro_1.jpg" alt="Imagen 1">
-      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre Oceano inconciente')"><i class="fab fa-whatsapp"></i>Contactar</button>
+      <img src="cuadro_2.jpg" alt="Imagen 2">
     </div>
   </section>
   
   <section id="seccion2">
     <div class="carousel">
-      <img src="taller_1.jpg" alt="Imagen 2">
-      <button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información sobre los talleres de arte abstracto')"><i class="fab fa-whatsapp"></i>Contactar</button>
+      <img src="taller_1.jpg" alt="Imagen 1">
+      <img src="taller_2.jpg" alt="Imagen 2">
     </div>
   </section>
 </main>
+
+<button class="btn-whatsapp" onclick="sendWhatsappMessage('+5491155920736', 'Quiero más información')"> <i class="fab fa-whatsapp"></i> </button>
 
 <script>
   function sendWhatsappMessage(number, message) {
     window.open('https://wa.me/' + number + '?text=' + encodeURIComponent(message));
   }
+
+  // Automatización del cambio de imágenes en los carruseles
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    let index = 0;
+    const images = carousel.querySelectorAll('img');
+    setInterval(() => {
+      images[index].style.display = 'none';
+      index = (index + 1) % images.length;
+      images[index].style.display = 'block';
+    }, 5000); // Cambiar cada 5 segundos
+  });
 </script>
 
 </body>
