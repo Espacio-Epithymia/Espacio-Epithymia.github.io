@@ -16,6 +16,7 @@
   body {
     background-color: rgba(0, 0, 0, 0.85); /* Color oscuro con transparencia al 85% */
     color: #fff; /* Texto en blanco */
+    margin-top: 80px; /* Ajustar margen superior para evitar que el encabezado cubra el contenido */
   }
 
   .container {
@@ -29,6 +30,10 @@
     color: #fff; /* Texto en blanco */
     padding: 20px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Encabezado fijo */
+    top: 0; /* Fijar en la parte superior */
+    width: 100%; /* Ancho completo */
+    z-index: 1000; /* Asegurar que esté por encima del resto del contenido */
   }
 
   .logo {
