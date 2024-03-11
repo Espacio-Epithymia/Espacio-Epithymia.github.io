@@ -34,6 +34,10 @@
     top: 0; /* Fijar en la parte superior */
     width: 100%; /* Ancho completo */
     z-index: 1000; /* Asegurar que esté por encima del resto del contenido */
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: space-between; /* Distribuir los elementos a lo largo del espacio */
+    align-items: center; /* Centrar verticalmente los elementos */
+    transition: background-color 0.3s ease; /* Transición para el cambio de color de fondo */
   }
 
   .logo {
@@ -41,65 +45,45 @@
     font-weight: 700;
     text-align: center; /* Centrar el texto */
     margin: 0; /* Eliminar el margen */
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
   }
 
-  nav {
-    text-align: center; /* Centrar el contenido */
+  .logo .letters {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
   }
 
-  nav ul {
-    list-style: none;
+  .logo .letters .letter {
+    font-size: 36px;
+    margin-right: 5px;
+    animation: slideText 5s linear infinite alternate; /* Animación para desplazar el texto */
   }
 
-  nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+  @keyframes slideText {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-40px); /* Desplazar hacia arriba */
+    }
   }
 
-  nav ul li a {
-    text-decoration: none;
-    color: #fff; /* Texto en blanco */
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
+  .art {
+    animation: fadeText 5s 5s ease forwards; /* Animación para desvanecer el texto */
   }
 
-  nav ul li a:hover {
-    color: #ff69b4;
+  .gallery {
+    animation: fadeText 5s 5s ease forwards; /* Animación para desvanecer el texto */
   }
 
-  .hero {
-    background-image: url('hero.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
-    text-align: center;
-    color: #fff;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-  }
-
-  .hero p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  .btn {
-    display: inline-block;
-    background-color: #ff69b4;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn:hover {
-    background-color: #e6007e;
+  @keyframes fadeText {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0; /* Desvanecer el texto */
+    }
   }
 
   .about {
@@ -161,7 +145,14 @@
 
 <header>
   <div class="container">
-    <h1 class="logo">AG Gallery - Ariel Godoy</h1>
+    <h1 class="logo">
+      <span class="letters">
+        <span class="letter">A</span> <span class="art">Art</span>
+      </span>
+      <span class="letters">
+        <span class="letter">G</span> <span class="gallery">Gallery</span>
+      </span>
+    </h1>
     <nav>
       <ul>
         <li><a href="#portada">Portada</a></li>
@@ -212,6 +203,18 @@
     <p>&copy; 2024 AG Gallery - Ariel Godoy. Todos los derechos reservados. | Diseñado por <a href="#">tu-nombre</a></p>
   </div>
 </footer>
+
+<script>
+  // JavaScript para controlar la animación del texto en el encabezado
+  setTimeout(function() {
+    var artText = document.querySelector('.art');
+    var galleryText = document.querySelector('.gallery');
+    artText.style.display = 'none';
+    galleryText.style.display = 'none';
+    document.querySelector('.letters').innerHTML += '<span class="letter">A</span> <span class="art">Ariel</span>';
+    document.querySelector('.letters:nth-child(2)').innerHTML += '<span class="letter">G</span> <span class="gallery">Godoy</span>';
+  }, 5000); // Después de 5 segundos
+</script>
 
 </body>
 </html>
