@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rossana Vázquez</title>
+<title>AG Gallery - Ariel Godoy</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
   * {
@@ -95,34 +95,41 @@
     background-color: #e6007e;
   }
 
-  .services {
+  .about {
     text-align: center;
     padding: 100px 0;
   }
 
-  .services h2 {
+  .about h2 {
     font-size: 36px;
     margin-bottom: 40px;
   }
 
-  .service {
+  .about p {
+    font-size: 18px;
     margin-bottom: 40px;
   }
 
-  .service img {
-    width: 100%;
-    max-width: 300px;
+  .gallery {
+    text-align: center;
+    padding: 100px 0;
+  }
+
+  .gallery h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .gallery .images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .gallery .images img {
+    max-width: 100%;
     height: auto;
-    margin-bottom: 20px;
-  }
-
-  .service h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .service p {
-    font-size: 18px;
   }
 
   footer {
@@ -147,45 +154,55 @@
 
 <header>
   <div class="container">
-    <h1 class="logo">Rossana Vázquez</h1>
+    <h1 class="logo">AG Gallery - Ariel Godoy</h1>
     <nav>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Sobre mí</a></li>
-        <li><a href="#">Portafolio</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="#portada">Portada</a></li>
+        <li><a href="#quien-soy">Quién Soy</a></li>
+        <li><a href="#mi-obra">Mi Obra</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#exhibiciones">Exhibiciones</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+        <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="portada">
   <div class="container">
-    <h1>Artista visual<br>Expresando emociones a través del arte</h1>
-    <p>Descubre mi trabajo y déjate llevar por la belleza y la creatividad.</p>
-    <a href="#" class="btn">Explorar</a>
+    <h1>Bienvenidos a AG Gallery</h1>
+    <p>Explora las obras de Ariel Godoy y sumérgete en el mundo del arte abstracto.</p>
+    <a href="#mi-obra" class="btn">Ver mi obra</a>
   </div>
 </section>
 
-<section class="services">
+<section class="about" id="quien-soy">
   <div class="container">
-    <h2>Servicios</h2>
-    <div class="service">
-      <img src="service1.jpg" alt="Servicio 1">
-      <h3>Servicio 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ligula velit. In vehicula velit at neque ultrices, vel consectetur lorem sollicitudin.</p>
-    </div>
-    <div class="service">
-      <img src="service2.jpg" alt="Servicio 2">
-      <h3>Servicio 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ligula velit. In vehicula velit at neque ultrices, vel consectetur lorem sollicitudin.</p>
+    <h2>Quién Soy</h2>
+    <p>Ariel Godoy nace un 17 de febrero de 1964, en la ciudad de Nogoyá, provincia de Entre Ríos. Con formación y una extensa carrera en el ámbito de las Ciencias Políticas, desde hace más de 15 años dedica su vida a la pintura.</p>
+    <p>Tuvo como maestro al artista Horacio Polliti y posteriormente se formó en el taller de Guillermo Roux. Realizó exposiciones individuales y colectivas en ciudades como París y Buenos Aires. Su obra es parte de numerosas colecciones privadas.</p>
+    <p>Considera la pintura como su lenguaje propio y estudia en ella los diferentes modos de ver. Con un profundo anclaje en el estudio de la mirada y la relación con el psicoanálisis, linda entre figuración y abstracción con un exhaustivo uso del color. Actualmente vive y trabaja en Buenos Aires.</p>
+  </div>
+</section>
+
+<section class="gallery" id="mi-obra">
+  <div class="container">
+    <h2>Mi Obra</h2>
+    <div class="images">
+      <img src="obra1.jpg" alt="Obra 1">
+      <img src="obra2.jpg" alt="Obra 2">
+      <img src="obra3.jpg" alt="Obra 3">
+      <!-- Agrega más imágenes aquí -->
     </div>
   </div>
 </section>
+
+<!-- Secciones adicionales -->
 
 <footer>
   <div class="container">
-    <p>&copy; 2024 Rossana Vázquez. Todos los derechos reservados. | Diseñado por <a href="https://www.ejemplodiseñador.com">ejemplodiseñador.com</a></p>
+    <p>&copy; 2024 AG Gallery - Ariel Godoy. Todos los derechos reservados. | Diseñado por <a href="#">tu-nombre</a></p>
   </div>
 </footer>
 
