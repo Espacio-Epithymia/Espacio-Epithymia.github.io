@@ -69,12 +69,27 @@
   }
 
   .hero {
-    background-image: url('hero.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
-    text-align: center;
+    position: relative; /* Posición relativa para elementos hijos */
+    height: 100vh; /* Altura igual al 100% del viewport */
+    overflow: hidden; /* Ocultar contenido que se desborde */
+    display: flex; /* Utilizar flexbox para centrar contenido */
+    align-items: center; /* Centrar verticalmente */
     color: #fff;
+  }
+
+  .video-bg {
+    position: absolute; /* Posición absoluta para que ocupe toda la sección */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajustar el video para que cubra todo el contenedor */
+    z-index: -1; /* Colocar detrás del contenido */
+  }
+
+  .hero-content {
+    text-align: center;
+    z-index: 1; /* Colocar delante del video */
   }
 
   .hero h1 {
@@ -177,7 +192,11 @@
 </header>
 
 <section class="hero" id="portada">
-  <div class="container">
+  <video class="video-bg" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="container hero-content">
     <h1>Bienvenidos a AG Gallery</h1>
     <p>Explora las obras de Ariel Godoy y sumérgete en el mundo del arte abstracto.</p>
     <a href="#mi-obra" class="btn">Ver mi obra</a>
@@ -186,32 +205,3 @@
 
 <section class="about" id="biografia"> <!-- Cambiar el ID de la sección -->
   <div class="container">
-    <h2>Biografía</h2> <!-- Cambiar el título de la sección -->
-    <p>Ariel Godoy nace un 17 de febrero de 1964, en la ciudad de Nogoyá, provincia de Entre Ríos. Con formación y una extensa carrera en el ámbito de las Ciencias Políticas, desde hace más de 15 años dedica su vida a la pintura.</p>
-    <p>Tuvo como maestro al artista Horacio Polliti y posteriormente se formó en el taller de Guillermo Roux. Realizó exposiciones individuales y colectivas en ciudades como París y Buenos Aires. Su obra es parte de numerosas colecciones privadas.</p>
-    <p>Considera la pintura como su lenguaje propio y estudia en ella los diferentes modos de ver. Con un profundo anclaje en el estudio de la mirada y la relación con el psicoanálisis, linda entre figuración y abstracción con un exhaustivo uso del color. Actualmente vive y trabaja en Buenos Aires.</p>
-  </div>
-</section>
-
-<section class="gallery" id="mi-obra">
-  <div class="container">
-    <h2>Mi Obra</h2>
-    <div class="images">
-      <img src="obra1.jpg" alt="Obra 1">
-      <img src="obra2.jpg" alt="Obra 2">
-      <img src="obra3.jpg" alt="Obra 3">
-      <!-- Agrega más imágenes aquí -->
-    </div>
-  </div>
-</section>
-
-<!-- Secciones adicionales -->
-
-<footer>
-  <div class="container">
-    <p>&copy; 2024 AG Gallery - Ariel Godoy. Todos los derechos reservados. | Diseñado por <a href="#">tu-nombre</a></p>
-  </div>
-</footer>
-
-</body>
-</html>
